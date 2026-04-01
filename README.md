@@ -5,3 +5,29 @@ Después, dentro de esa carpeta principal, creo subcarpetas para proyectos espec
 Una vez listo eso, trabajo en local (instalo librerías, escribo código, etc.). Luego uso git add, git commit y git push para subir los cambios a GitHub.
 
 Solo uso git pull cuando hay cambios en GitHub que necesito traer a mi entorno local (por ejemplo, si edité el README desde la web).
+
+---------------------------------------------------------------------------------------------
+INICIO
+cd ~/Desktop/EstudioT/CursoPython/Backend
+source .venv/Scripts/activate
+code .
+
+SUBIR A GIHUB
+git add .
+git commit -m "mensaje corto claro"
+git push
+
+TIPO COMMITS
+feat: → nueva funcionalidad
+fix: → corrección
+chore: → cosas internas
+
+DESACTIVAR .VENV
+deactivate
+
+DOCUMENTACION
+http://xxx.x.x.x:xxxx/docs
+http://xxx.x.x.x:xxxx/redoc
+---------------------------------------------------------------------------------------------
+
+31/03/2026 -> Se implementa la base de FastAPI, incluyendo creación de endpoints ("/" y "/url") y ejecución del servidor con uvicorn para pruebas locales.
