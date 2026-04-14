@@ -1,2 +1,15 @@
+# Entorno virtual (en cualquier carpeta)
 **/.venv/
+
+# Python cache
 **/__pycache__/
+*.pyc
+
+# Variables de entorno (claves, configs sensibles)
+.env
+
+# Editor (configuración local)
+.vscode/
+
+# Sistema
+.DS_Store
