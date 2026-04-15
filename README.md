@@ -50,7 +50,6 @@ POST → crear datos → CREATE
 PUT → actualizar datos → UPDATE
 DELETE → eliminar datos → DELETE
 ```
-
 ```
 | 09 - Path y Query
 PATH → identifica exactamente qué recurso quieres / obligatorio, estructura la API
@@ -80,4 +79,12 @@ Idea clave:
 Ejemplo:
 - `201 Created` → recurso creado correctamente
 - `404 Not Found` → recurso no encontrado
+```
+```
+🔹 Estructura
+APIRouter permite separar la lógica en módulos (users.py, products.py)
+prefix="/user" agrupa todas las rutas bajo /user
+tags=["Users"] mejora la documentación automática (/docs)
+
+
 ```
