@@ -1,5 +1,5 @@
 # IMPORTACIONES
-from fastapi import FastAPI  #Crea la app/API
+from fastapi import FastAPI, HTTPException  #Crea la app/API
 from pydantic import BaseModel #Define la estructura de datos
 
 
@@ -57,20 +57,25 @@ async def user(id: int):
 
 # Endpoint QUERY
 ## Recibe datos por query string. 
-## Ejemplo: ..../user/?id=1&name=Brais
+## Ejemplo: ..../user/?id=1
 
+
+## GET
 @app.get("/user/")
 async def user(id: int):
     return search_user(id)
 
-
-@app.post("/user/")
+## POST
+## response_model=User -> define la estructura de la respuesta exitosa
+## status_code=201 -> indica que el usuario fue creado correctamente
+@app.post("/user/", response_model=User, status_code=201)
 async def user(user: User):
     if type(search_user(user.id)) == User:
-        return {"Error":"El usuario ya existe"}
-    else:
-        users_list.append(user)
-        return user 
+        raise HTTPException(status_code=404, detail="El usuario ya existe")
+    
+    
+    users_list.append(user)
+    return user 
     
 
 ## PUT
@@ -86,7 +91,7 @@ async def user(user:User):
             found = True
 
     if not found:
-        return{"error": "No se a actualizado el usuario"}
+        return{"error": "No se ha actualizado el usuario"}
     else:
         return user
     
@@ -103,7 +108,7 @@ async def user(id: int):
             found = True
 
     if not found:
-            return{"error": "No se a eliminado el usuario"}
+            return{"error": "No se ha eliminado el usuario"}
 
 
 

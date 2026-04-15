@@ -52,7 +52,7 @@ DELETE → eliminar datos → DELETE
 ```
 
 ```
-02:05:10 | 09 - Path y Query
+| 09 - Path y Query
 PATH → identifica exactamente qué recurso quieres / obligatorio, estructura la API
 QUERY → modifica o filtra la búsqueda de recursos / opcional, agrega filtros
 
@@ -63,4 +63,21 @@ GET /users/1
 
 GET /users?age=24
 → usuarios con edad 24
+```
+```
+| 11 - HTTP status codes
+
+Se añade control más explícito sobre las respuestas de la API.
+
+Novedades: (users.py - POST - line 70)
+- `status_code=201` en `POST /user/` para indicar creación correcta del recurso.
+- `response_model=User` para definir la estructura esperada en la respuesta y mejorar la documentación automática.
+
+Idea clave:
+- No solo importa que el endpoint funcione.
+- También importa responder con el código HTTP correcto según la acción realizada.
+
+Ejemplo:
+- `201 Created` → recurso creado correctamente
+- `404 Not Found` → recurso no encontrado
 ```
