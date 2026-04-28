@@ -1,17 +1,22 @@
 #Instala FastAPI: pip install "fastapi[standard]"
 from fastapi import FastAPI
+
+# Importa routers modularizados
 from Routers import products, users
 
-app  = FastAPI() 
+#Importa 
+from fastapi.staticfiles import StaticFiles
 
+# Crea la aplicación principal
+app  = FastAPI() 
 
 #Inicia Server: uvicorn main:app --reload
 
-
-#Routers
+# Integra routers (conecta módulos a la app)
 app.include_router(products.router)
 app.include_router(users.router)
-
+#
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 #Url local: https://127.0.0.1.8000

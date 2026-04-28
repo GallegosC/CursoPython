@@ -85,6 +85,4 @@ Ejemplo:
 APIRouter permite separar la lógica en módulos (users.py, products.py)
 prefix="/user" agrupa todas las rutas bajo /user
 tags=["Users"] mejora la documentación automática (/docs)
-
-
 ```
