@@ -1,8 +1,10 @@
 # IMPORTACIONES
 from fastapi import APIRouter
 
+
+# Router para agrupar endpoints relacionados a productos
 router = APIRouter(prefix="/products",
-                   tags=["Products"], #esto es para la docuemntacion 
+                   tags=["Products"], #esto es para la documentacion 
                    responses={404: {"message":"No encontrado"}})
 
 #Inicia Server: uvicorn products:app --reload

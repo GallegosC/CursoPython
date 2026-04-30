@@ -86,3 +86,13 @@ APIRouter permite separar la lógica en módulos (users.py, products.py)
 prefix="/user" agrupa todas las rutas bajo /user
 tags=["Users"] mejora la documentación automática (/docs)
 ```
+```
+| 14 - Autorización OAuth2
+Seguridad básica: Autenticación con usuario y contraseña.
+
+- Librería `fastapi.security`: Herramientas para el "candado" de la API.
+- Login con formulario: Recibir user y pass de forma segura (OAuth2).
+- Token Bearer: La "llave" que te dan al loguearte para entrar a zonas privadas.
+- User vs UserDB: Control para guardar la contraseña interna pero no mostrarla en la respuesta.
+```
+

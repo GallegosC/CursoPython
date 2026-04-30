@@ -4,7 +4,7 @@ from fastapi import FastAPI
 # Importa routers modularizados
 from Routers import products, users
 
-#Importa 
+# Importa módulo para servir archivos estáticos (imágenes, CSS, JS)
 from fastapi.staticfiles import StaticFiles
 
 # Crea la aplicación principal
