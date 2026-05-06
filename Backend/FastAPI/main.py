@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 
 # Importa routers modularizados
-from Routers import products, users
+from Routers import products, users, jwt_auth_users, basic_auth_users
 
 # Importa módulo para servir archivos estáticos (imágenes, CSS, JS)
 from fastapi.staticfiles import StaticFiles
@@ -15,6 +15,12 @@ app  = FastAPI()
 # Integra routers (conecta módulos a la app)
 app.include_router(products.router)
 app.include_router(users.router)
+
+
+app.include_router(jwt_auth_users.router)
+app.include_router(basic_auth_users.router)
+
+
 #
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
