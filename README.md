@@ -95,4 +95,18 @@ Seguridad básica: Autenticación con usuario y contraseña.
 - Token Bearer: La "llave" que te dan al loguearte para entrar a zonas privadas.
 - User vs UserDB: Control para guardar la contraseña interna pero no mostrarla en la respuesta.
 ```
+```
+| 15 - OAuth2 JWT
 
+Se trabajó en `jwt_auth_users.py`.
+
+En esta parte se mejoró el login anterior:
+- Antes el token era solo el `username`.
+- Ahora el login genera un token JWT codificado.
+- El token guarda quién es el usuario (`sub`) y cuándo expira (`exp`).
+- `SECRET` sirve para firmar el token y comprobar que no fue alterado.
+- `/users/me` usa ese token para validar al usuario antes de mostrar sus datos.
+
+En resumen:
+JWT sirve para autenticar usuarios con un token firmado, en vez de usar un texto simple como token.
+```
